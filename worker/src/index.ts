@@ -264,9 +264,11 @@ async function handleScheduled(env: Env): Promise<void> {
 
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+		console.log("testing...");
 		return handleFetch(request, env);
 	},
 	async scheduled(controller: ScheduledController, env: Env, ctx: ExecutionContext): Promise<void> {
+		console.log("scheduling testing...");
 		await handleScheduled(env);
 	},
 } satisfies ExportedHandler<Env>;
