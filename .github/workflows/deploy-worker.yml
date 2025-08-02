@@ -32,3 +32,4 @@ jobs:
           WHATSAPP_ACCESS_TOKEN: ${{ secrets.WHATSAPP_ACCESS_TOKEN }}
           WHATSAPP_PHONE_NUMBER_ID: ${{ secrets.WHATSAPP_PHONE_NUMBER_ID }}
           WHATSAPP_API_VERSION: ${{ secrets.WHATSAPP_API_VERSION }}
+          NODE_VERSION: 20 # Explicitly set Node.js version for consistency

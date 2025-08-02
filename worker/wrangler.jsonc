@@ -37,7 +37,7 @@
 	 */
 	"vars": {
 		"AMUL_API_URL": "https://shop.amul.com/api/1/entity/ms.products"
-	}
+	},
 
 	/**
 	 * Secrets to be set via wrangler secret put:
@@ -45,4 +45,8 @@
 	 * - WHATSAPP_PHONE_NUMBER_ID
 	 * - WHATSAPP_API_VERSION (default: v21.0)
 	 */
+
+	"env": {
+		"production": {}
+	}
 }
