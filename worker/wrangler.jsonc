@@ -1,0 +1,48 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "amul-stock-notifier",
+	"main": "src/index.ts",
+	"compatibility_date": "2025-08-02",
+	"observability": {
+		"enabled": true
+	},
+
+	/**
+	 * KV Namespaces for storing product data and user subscriptions
+	 */
+	"kv_namespaces": [
+		{
+			"binding": "PRODUCTS_KV",
+			"id": "29fc19def6a14ce0b3762efb7f0a7839"
+		},
+		{
+			"binding": "USERS_KV",
+			"id": "4650e3a3060b4289a0093c3ddade07fd"
+		}
+	],
+
+	/**
+	 * Cron Triggers for scheduled stock monitoring
+	 */
+	"triggers": {
+		"crons": ["*/5 * * * *"]
+	},
+
+	/**
+	 * Environment Variables - will be set as secrets
+	 */
+	"vars": {
+		"AMUL_API_URL": "https://shop.amul.com/api/1/entity/ms.products"
+	}
+
+	/**
+	 * Secrets to be set via wrangler secret put:
+	 * - WHATSAPP_ACCESS_TOKEN
+	 * - WHATSAPP_PHONE_NUMBER_ID
+	 * - WHATSAPP_API_VERSION (default: v21.0)
+	 */
+}

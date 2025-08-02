@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amul Protein Stock Notifier</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Amul Protein Stock Notifier</h1>
+        <p>Get notified via WhatsApp when your favorite Amul protein products are back in stock!</p>
+
+        <form id="subscription-form">
+            <div class="form-group">
+                <label for="phone-number">WhatsApp Phone Number:</label>
+                <input type="tel" id="phone-number" placeholder="e.g., +919876543210" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email (Optional, for future fallback):</label>
+                <input type="email" id="email" placeholder="your.email@example.com">
+            </div>
+            <div class="form-group">
+                <label for="product-select">Select Products to Monitor:</label>
+                <select id="product-select" multiple required>
+                    <!-- Options will be loaded dynamically by JavaScript -->
+                </select>
+                <small>Hold Ctrl/Cmd to select multiple products.</small>
+            </div>
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="whatsapp-optin" required>
+                <label for="whatsapp-optin">I agree to receive back-in-stock notifications via WhatsApp.</label>
+            </div>
+            <button type="submit">Subscribe</button>
+        </form>
+
+        <div class="message-area" id="message-area"></div>
+
+        <hr>
+
+        <h2>Manage Your Subscriptions</h2>
+        <form id="unsubscribe-form">
+            <div class="form-group">
+                <label for="unsubscribe-phone-number">Your WhatsApp Phone Number:</label>
+                <input type="tel" id="unsubscribe-phone-number" placeholder="e.g., +919876543210" required>
+            </div>
+            <div class="form-group">
+                <label for="unsubscribe-product-select">Select Products to Unsubscribe (Optional):</label>
+                <select id="unsubscribe-product-select" multiple>
+                    <!-- Options will be loaded dynamically by JavaScript -->
+                </select>
+                <small>Leave blank to unsubscribe from all products.</small>
+            </div>
+            <button type="submit">Unsubscribe</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

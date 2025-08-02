@@ -1,0 +1,26 @@
+name: Deploy Cloudflare Pages Frontend
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'frontend/**' # Trigger only when changes occur in the 'frontend' directory
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: amul-stock-notifier-frontend # Replace with your Cloudflare Pages project name
+          directory: frontend # The directory containing your static assets
+          # Optional: if you have a build step for your frontend (e.g., npm run build)
+          # command: npm install && npm run build
+          # buildOutputDirectory: build # The directory where your build output is
