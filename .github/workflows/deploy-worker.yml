@@ -33,7 +33,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
       - name: Deploy Worker
-        run: npx wrangler deploy --minify --env production
+        run: npx wrangler deploy --env production
         working-directory: ./worker # IMPORTANT: Run wrangler deploy in the worker directory
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
